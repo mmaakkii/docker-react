@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -6,4 +7,4 @@ before_install:
   - docker build -t makkii/docker-react -f Dockerfile.dev .
 
 scripts:
-  - docker run makkii/docker-react npm run test -- --coverage
+  - docker run -e CI=true makkii/docker-react npm run test -- --coverage
