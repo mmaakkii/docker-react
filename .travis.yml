@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t makkii/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run makkii/docker-react npm run test -- --coverage
